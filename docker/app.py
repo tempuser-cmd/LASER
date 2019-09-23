@@ -21,8 +21,8 @@ def root():
     return html.format(name=os.getenv("LASER", "world"), hostname=socket.gethostname())
 
 
-@app.route("/vectorize")
-def vectorize():
+@app.route("/get_vector", methods=['POST'])
+def get_vector():
     content = request.args.get('q')
     lang = request.args.get('lang')
     embedding = ''
